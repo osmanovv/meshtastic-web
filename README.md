@@ -1,4 +1,4 @@
-# Meshtastic.js
+# Meshtastic Web
 
 [![meshtastic-web build](https://github.com/meshtastic/meshtastic-web/actions/workflows/main.yml/badge.svg)](https://github.com/meshtastic/meshtastic-web/actions/workflows/main.yml)
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/meshtastic/meshtastic-web)
