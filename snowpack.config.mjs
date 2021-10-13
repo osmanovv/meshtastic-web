@@ -1,8 +1,8 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
   mount: {
-    public: { url: '/', static: true },
-    src: { url: '/static' },
+    public: { url: '/' },
+    src: { url: '/' },
   },
   plugins: [
     '@snowpack/plugin-react-refresh',
@@ -24,7 +24,6 @@ export default {
     '@pages': './src/pages',
     '@components': './src/components',
     '@core': './src/core',
-    '@static': './src/static',
   },
   routes: [
     /* Enable an SPA Fallback in development: */

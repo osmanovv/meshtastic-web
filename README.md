@@ -9,14 +9,42 @@ Official [Meshtastic](https://meshtastic.org) web interface, that can be run ind
 
 ## Development & Building
 
+### Building and Packaging
+
 Build the project:
 
 ```bash
-yarn build
+pnpm build
 ```
 
 GZip the output:
 
 ```bash
-yarn package
+pnpm package
+```
+
+### Development
+
+Create a `.env` file:
+
+```bash
+cp ./.env.example ./.env
+```
+
+And define the device IP address in the `.env` file.
+
+```
+SNOWPACK_PUBLIC_DEVICE_IP=xxx.xxx.xxx.xxx
+```
+
+Install the dependencies.
+
+```bash
+pnpm i
+```
+
+Start the developtment server:
+
+```bash
+pnpm start
 ```

@@ -9,6 +9,7 @@ import { Drawer } from '@components/generic/Drawer';
 import { SidebarItem } from '@components/generic/SidebarItem';
 import { Tab } from '@headlessui/react';
 import { XCircleIcon } from '@heroicons/react/outline';
+import { Protobuf } from '@meshtastic/meshtasticjs';
 
 import { Node } from './Node';
 
@@ -45,6 +46,12 @@ export const Nodes = (): JSX.Element => {
               </div>
             </div>
 
+            {!nodes.length && (
+              <span className="p-4 text-sm text-gray-400 dark:text-gray-600">
+                No nodes discovered yet...
+              </span>
+            )}
+
             {nodes.map((node) => (
               <Tab
                 onClick={(): void => {
@@ -55,7 +62,11 @@ export const Nodes = (): JSX.Element => {
                 {({ selected }): JSX.Element => (
                   <SidebarItem
                     title={node.user?.longName ?? node.num.toString()}
-                    description="Node info"
+                    description={
+                      node.user?.hwModel
+                        ? Protobuf.HardwareModel[node.user.hwModel]
+                        : 'Unknown Hardware'
+                    }
                     selected={selected}
                     icon={
                       <Avatar
@@ -78,9 +89,9 @@ export const Nodes = (): JSX.Element => {
           </Tab.List>
         </Drawer>
         <div className="w-full">
-          <Tab.Panels>
+          <Tab.Panels className="h-full">
             {nodes.map((node) => (
-              <Tab.Panel key={node.num}>
+              <Tab.Panel className="h-full" key={node.num}>
                 <Node navOpen={navOpen} setNavOpen={setNavOpen} node={node} />
               </Tab.Panel>
             ))}
